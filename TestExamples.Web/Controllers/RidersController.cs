@@ -9,11 +9,14 @@ namespace TestExamples.Controllers
   {
     private readonly IRidersDal _ridersDal;
 
+    public RidersController() { }
+
     public RidersController(IRidersDal ridersDal)
     {
       _ridersDal = ridersDal;
     }
 
+    [Route("teams/{teamName}/riders")]
     public ViewResult GetRiders(string teamName)
     {
       var riderDtos =
