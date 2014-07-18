@@ -1,6 +1,8 @@
 test-examples
 =============
 
+[![Build status](https://ci.appveyor.com/api/projects/status/ie66hbo1khyqmr93)](https://ci.appveyor.com/project/mcgrathjoe/test-examples)
+
 An example project to illustrate some different types of automated testing
 
 1. Created an empty ASP.Net Web Application called TestExamples.Web
