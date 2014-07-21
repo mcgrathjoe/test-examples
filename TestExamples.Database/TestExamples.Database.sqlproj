@@ -62,4 +62,7 @@
     <Build Include="Rider.sql" />
     <Build Include="Team.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="TestExamples.Database.refactorlog" />
+  </ItemGroup>
 </Project>
