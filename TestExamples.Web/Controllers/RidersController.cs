@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 using TestExamples.Dal;
 using TestExamples.ViewModels;
@@ -9,7 +10,7 @@ namespace TestExamples.Controllers
   {
     private readonly IRidersDal _ridersDal;
 
-    public RidersController() { }
+    public RidersController() : this(new RidersDal()) {}
 
     public RidersController(IRidersDal ridersDal)
     {
