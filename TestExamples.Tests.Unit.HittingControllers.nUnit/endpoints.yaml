@@ -10,3 +10,8 @@
           "gender":"Male",
           "firstAppearance":"1976"
          }
+
+-  request:
+      url: /muppets/bungle/?$
+   response:
+      status: 404

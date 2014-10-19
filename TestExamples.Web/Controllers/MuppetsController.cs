@@ -1,9 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.Net.Http.Headers;
+﻿using System.Net;
 
 namespace TestExamples.Controllers
 {
+  using System;
+  using System.Configuration;
+  using System.Net.Http.Headers;
   using System.Net.Http;
   using System.Web.Mvc;
   using ViewModels;
@@ -11,9 +12,9 @@ namespace TestExamples.Controllers
   public class MuppetsController : Controller
   {
     [Route("muppets/{muppetName}")]
-    public ViewResult GetMuppet(string muppetName)
+    public ActionResult GetMuppet(string muppetName)
     {
-      HttpResponseMessage message;
+      HttpResponseMessage response;
 
       using (var client = new HttpClient())
       {
@@ -24,11 +25,16 @@ namespace TestExamples.Controllers
         client.DefaultRequestHeaders.Accept.Add(
           new MediaTypeWithQualityHeaderValue("application/json"));
 
-        message = 
-          client.GetAsync("muppets/gonzo").Result;
+        response = 
+          client.GetAsync("muppets/" + muppetName).Result;
       }
 
-      var muppet = message.Content.ReadAsAsync<Muppet>().Result;
+      if (response.StatusCode == HttpStatusCode.NotFound)
+      {
+        return HttpNotFound();
+      }
+
+      var muppet = response.Content.ReadAsAsync<Muppet>().Result;
 
       var muppetViewModel = new MuppetViewModel
       {
