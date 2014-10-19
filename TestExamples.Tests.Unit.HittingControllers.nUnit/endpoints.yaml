@@ -1,0 +1,12 @@
+-  request:
+      url: /muppets/gonzo/?$
+   response:
+      status: 200
+      headers:
+         content-type: application/json
+      body: >
+         {
+          "name":"Gonzo",
+          "gender":"Male",
+          "firstAppearance":"1976"
+         }
