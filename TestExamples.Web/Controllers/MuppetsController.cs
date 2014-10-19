@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Net.Http.Headers;
 
 namespace TestExamples.Controllers
@@ -16,7 +17,9 @@ namespace TestExamples.Controllers
 
       using (var client = new HttpClient())
       {
-        client.BaseAddress = new Uri("http://localhost:8882/");
+        var apiBaseAddress =
+          ConfigurationManager.AppSettings["apiBaseAddress"];
+        client.BaseAddress = new Uri(apiBaseAddress);
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(
           new MediaTypeWithQualityHeaderValue("application/json"));
