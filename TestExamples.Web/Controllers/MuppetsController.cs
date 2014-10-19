@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace TestExamples.Controllers
+﻿namespace TestExamples.Controllers
 {
   using System;
   using System.Configuration;
@@ -8,6 +6,7 @@ namespace TestExamples.Controllers
   using System.Net.Http;
   using System.Web.Mvc;
   using ViewModels;
+  using System.Net;
 
   public class MuppetsController : Controller
   {
@@ -25,13 +24,25 @@ namespace TestExamples.Controllers
         client.DefaultRequestHeaders.Accept.Add(
           new MediaTypeWithQualityHeaderValue("application/json"));
 
-        response = 
+        try
+        {
+          response =
           client.GetAsync("muppets/" + muppetName).Result;
+        }
+        catch (Exception)
+        {
+          return View("GetMuppetError");
+        }
       }
 
       if (response.StatusCode == HttpStatusCode.NotFound)
       {
         return HttpNotFound();
+      }
+
+      if (!response.IsSuccessStatusCode)
+      {
+        return View("GetMuppetError");
       }
 
       var muppet = response.Content.ReadAsAsync<Muppet>().Result;

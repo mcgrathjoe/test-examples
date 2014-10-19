@@ -1,7 +1,6 @@
-﻿using System.Web.Mvc;
-
-namespace TestExamples.Tests.Unit.HittingControllers.nUnit
+﻿namespace TestExamples.Tests.Unit.HittingControllers.nUnit
 {
+  using System.Web.Mvc;
   using Controllers;
   using ViewModels;
   using NUnit.Framework;
@@ -73,6 +72,30 @@ namespace TestExamples.Tests.Unit.HittingControllers.nUnit
       Assert.That(
         actionResult, 
         Is.InstanceOf<HttpNotFoundResult>());
+    }
+
+    [Test]
+    public void When_the_api_returns_an_error_then_you_see_a_message()
+    {
+      var actionResult = GetMuppet("kermit");
+
+      var viewName = ((ViewResult)actionResult).ViewName;
+
+      Assert.That(
+        viewName,
+        Is.EqualTo("GetMuppetError"));
+    }
+
+    [Test]
+    public void When_the_api_times_out_then_you_see_a_message()
+    {
+      var actionResult = GetMuppet("beaker");
+
+      var viewName = ((ViewResult)actionResult).ViewName;
+
+      Assert.That(
+        viewName,
+        Is.EqualTo("GetMuppetError"));
     }
 
     private static ActionResult GetMuppet(string muppetName)
