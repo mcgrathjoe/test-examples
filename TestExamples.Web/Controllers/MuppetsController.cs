@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-
-namespace TestExamples.Controllers
+﻿namespace TestExamples.Controllers
 {
+  using AutoMapper;
   using System.Web.Mvc;
   using Dal;
   using ViewModels;

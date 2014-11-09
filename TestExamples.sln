@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F7C04A
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestExamples.Database", "TestExamples.Database\TestExamples.Database.sqlproj", "{46D2A565-E3C3-4197-80D0-66C009C6C326}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api", "TestExamples.Muppets.Api\TestExamples.Muppets.Api.csproj", "{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api.Tests.Unit", "TestExamples.Muppets.Api.Tests.Unit\TestExamples.Muppets.Api.Tests.Unit.csproj", "{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,14 @@ Global
 		{46D2A565-E3C3-4197-80D0-66C009C6C326}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D2A565-E3C3-4197-80D0-66C009C6C326}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46D2A565-E3C3-4197-80D0-66C009C6C326}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +75,6 @@ Global
 		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 		{ECC374FE-5963-48AF-BE6E-E474D921D350} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 		{D297DC81-2CF8-4ABC-BFFA-6385571863D6} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
+		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 	EndGlobalSection
 EndGlobal
