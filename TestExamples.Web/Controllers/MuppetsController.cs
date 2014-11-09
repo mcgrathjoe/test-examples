@@ -1,68 +1,35 @@
-﻿namespace TestExamples.Controllers
+﻿using AutoMapper;
+
+namespace TestExamples.Controllers
 {
-  using System;
-  using System.Configuration;
-  using System.Net.Http.Headers;
-  using System.Net.Http;
   using System.Web.Mvc;
+  using Dal;
   using ViewModels;
-  using System.Net;
 
   public class MuppetsController : Controller
   {
     [Route("muppets/{muppetName}")]
     public ActionResult GetMuppet(string muppetName)
     {
-      HttpResponseMessage response;
+      var muppetApiClient = new MuppetApiClient();
 
-      using (var client = new HttpClient())
-      {
-        var apiBaseAddress =
-          ConfigurationManager.AppSettings["apiBaseAddress"];
-        client.BaseAddress = new Uri(apiBaseAddress);
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(
-          new MediaTypeWithQualityHeaderValue("application/json"));
+      var response = muppetApiClient.GetMuppet(muppetName);
 
-        try
-        {
-          response =
-          client.GetAsync("muppets/" + muppetName).Result;
-        }
-        catch (Exception)
-        {
-          return View("GetMuppetError");
-        }
-      }
-
-      if (response.StatusCode == HttpStatusCode.NotFound)
+      if (response.NotFound)
       {
         return HttpNotFound();
       }
 
-      if (!response.IsSuccessStatusCode)
+      if (response.Failed)
       {
         return View("GetMuppetError");
       }
 
-      var muppet = response.Content.ReadAsAsync<Muppet>().Result;
+      var muppetDto = response.DeserialisedContent;
 
-      var muppetViewModel = new MuppetViewModel
-      {
-        FirstAppearance = muppet.FirstAppearance,
-        Gender = muppet.Gender,
-        Name = muppet.Name
-      };
+      var muppetViewModel = Mapper.Map<MuppetViewModel>(muppetDto);
 
       return View(muppetViewModel);
     }
-
-  }
-
-  public class Muppet
-  {
-    public string FirstAppearance { get; set; }
-    public string Gender { get; set; }
-    public string Name { get; set; }
   }
 }

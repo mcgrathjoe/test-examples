@@ -17,6 +17,8 @@
     public void TestFixtureSetUp()
     {
       _stubby.Start();
+
+      AutoMapperConfiguration.Configure();
     }
 
     [TestFixtureTearDown]
