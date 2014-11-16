@@ -12,6 +12,9 @@ namespace TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit
     {
       var httpConfiguration = new HttpConfiguration();
       WebApiConfig.Register(httpConfiguration);
+
+      // TODO: Do we override the dependency resolution on the HttpConfiguration here?
+
       var httpServer = new HttpServer(httpConfiguration);
       _invoker = new HttpMessageInvoker(httpServer);
     }

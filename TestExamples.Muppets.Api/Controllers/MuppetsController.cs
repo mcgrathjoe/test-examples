@@ -1,23 +1,14 @@
-﻿using System;
-using System.Linq;
-
-namespace TestExamples.Muppets.Api.Controllers
+﻿namespace TestExamples.Muppets.Api.Controllers
 {
   using System.Web.Http;
+  using System;
+  using System.Linq;
   using Models;
   using Raven.Client;
-  using Raven.Client.Document;
 
   public class MuppetsController : ApiController
   {
     private readonly IDocumentStore _store;
-
-    public MuppetsController() : this(
-      new DocumentStore
-      {
-        Url = "http://localhost:8080/",
-        DefaultDatabase = "Muppets"
-      }) { }
 
     public MuppetsController(IDocumentStore store)
     {
