@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Web.Http;
 
-namespace TestExamples.Muppets.Api.Tests.Unit
+namespace TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit
 {
   class TestHttpServer
   {

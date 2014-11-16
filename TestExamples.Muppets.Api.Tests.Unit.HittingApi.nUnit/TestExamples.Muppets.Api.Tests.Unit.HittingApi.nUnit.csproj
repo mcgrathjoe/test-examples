@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}</ProjectGuid>
+    <ProjectGuid>{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestExamples.Muppets.Api.Tests.Unit</RootNamespace>
-    <AssemblyName>TestExamples.Muppets.Api.Tests.Unit</AssemblyName>
+    <RootNamespace>TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit</RootNamespace>
+    <AssemblyName>TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

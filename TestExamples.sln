@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Tests.EndToEnd.SpecFlow", "TestExamples.Tests.EndToEnd.SpecFlow\TestExamples.Tests.EndToEnd.SpecFlow.csproj", "{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Tests.Integration.nUnit", "TestExamples.Tests.Integration.nUnit\TestExamples.Tests.Integration.nUnit.csproj", "{ECC374FE-5963-48AF-BE6E-E474D921D350}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Tests.Unit.HittingControllers.nUnit", "TestExamples.Tests.Unit.HittingControllers.nUnit\TestExamples.Tests.Unit.HittingControllers.nUnit.csproj", "{D297DC81-2CF8-4ABC-BFFA-6385571863D6}"
@@ -29,7 +27,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestExamples.Database", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api", "TestExamples.Muppets.Api\TestExamples.Muppets.Api.csproj", "{2FB18018-54A5-4E07-AF81-8C0A0AECF34E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api.Tests.Unit", "TestExamples.Muppets.Api.Tests.Unit\TestExamples.Muppets.Api.Tests.Unit.csproj", "{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api.Tests.Unit.HittingControllers.nUnit", "TestExamples.Muppets.Api.Tests.Unit\TestExamples.Muppets.Api.Tests.Unit.HittingControllers.nUnit.csproj", "{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit", "TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit\TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit.csproj", "{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECC374FE-5963-48AF-BE6E-E474D921D350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECC374FE-5963-48AF-BE6E-E474D921D350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECC374FE-5963-48AF-BE6E-E474D921D350}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,14 +63,18 @@ Global
 		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB513A80-AAE6-460B-B8B7-AAA6E80206FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A825D3A9-AB44-428E-92C9-4DC3BFF6DDF1} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 		{ECC374FE-5963-48AF-BE6E-E474D921D350} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 		{D297DC81-2CF8-4ABC-BFFA-6385571863D6} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 		{6D9A5ADF-86AC-4E0B-94D2-5840A96C23D1} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
+		{AB513A80-AAE6-460B-B8B7-AAA6E80206FF} = {E2FF1C17-4348-47C3-B514-EFAFA2B48E7F}
 	EndGlobalSection
 EndGlobal

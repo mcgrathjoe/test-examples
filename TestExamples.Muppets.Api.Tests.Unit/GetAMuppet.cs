@@ -1,7 +1,5 @@
 ﻿namespace TestExamples.Muppets.Api.Tests.Unit
 {
-  using System;
-  using System.Net.Http;
   using NUnit.Framework;
   using Models;
   using Raven.Client.Embedded;
@@ -12,7 +10,6 @@
   [TestFixture]
   class GetAMuppet
   {
-    private TestHttpServer _testHttpServer;
     private EmbeddableDocumentStore _store;
 
     [TestFixtureSetUp]
@@ -37,12 +34,6 @@
         session.Store(gonzo);
         session.SaveChanges();
       }
-
-      /* To test via the API, rather than directly via the 
-       * controller, we need to pass this store into the 
-       * controller via the TestHttpServer setup - IOC? */
-
-      _testHttpServer = new TestHttpServer();
     }
 
     [TestFixtureTearDown]
@@ -52,7 +43,7 @@
     }
 
     [Test]
-    public void When_you_get_a_muppet_then_the_response_contains_the_muppet_name()
+    public void When_you_get_a_muppet_then_you_get_the_muppet_name()
     {
       var muppet = GetMuppetFromController("Gonzo");
 
@@ -62,7 +53,7 @@
     }
 
     [Test]
-    public void When_you_get_a_muppet_then_the_response_contains_the_muppet_gender()
+    public void When_you_get_a_muppet_then_you_get_the_muppet_gender()
     {
       var muppet = GetMuppetFromController("Gonzo");
 
@@ -72,7 +63,7 @@
     }
 
     [Test]
-    public void When_you_get_a_muppet_then_the_response_contains_when_the_muppet_first_appeared()
+    public void When_you_get_a_muppet_then_you_get_when_the_muppet_first_appeared()
     {
       var muppet = GetMuppetFromController("Gonzo");
 
@@ -82,7 +73,7 @@
     }
 
     [Test]
-    public void When_you_get_a_muppet_then_the_response_status_is_OK()
+    public void When_you_get_a_muppet_then_the_result_is_OK()
     {
       var result = GetMuppetResultFromController("Gonzo");
 
@@ -92,7 +83,7 @@
     }
 
     [Test]
-    public void When_you_try_to_get_a_non_existent_muppet_then_the_response_status_is_NotFound()
+    public void When_you_try_to_get_a_non_existent_muppet_then_the_result_is_NotFound()
     {
       var result = GetMuppetResultFromController("bungle");
 
@@ -100,13 +91,6 @@
         result, 
         Is.InstanceOf<NotFoundResult>());
     }
-
-    /* Below methods allow you to get a muppet and a muppet response
-     * from either the controller directly, or by calling an 
-     * in-memory API that in turn hits the controller.
-     * 
-     * Pros and Cons TBD.
-     */
 
     private Muppet GetMuppetFromController(string muppetName)
     {
@@ -122,23 +106,6 @@
       var controller = new MuppetsController(_store);
       
       return controller.GetMuppet(muppetName);
-    }
-
-    private Muppet GetMuppetFromApi(string muppetName)
-    {
-      var response = GetMuppetResponseFromApi(muppetName);
-
-      return response.Content.ReadAsAsync<Muppet>().Result;
-    }
-
-    private HttpResponseMessage GetMuppetResponseFromApi(string muppetName)
-    {
-      var requestUri =
-        new Uri("http://localhost/muppets/" + muppetName);
-
-      var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
-
-      return _testHttpServer.Send(request);
     }
   }
 }
