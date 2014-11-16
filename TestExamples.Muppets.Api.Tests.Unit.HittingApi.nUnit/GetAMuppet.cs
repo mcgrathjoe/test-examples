@@ -7,7 +7,7 @@ using TestExamples.Muppets.Api.Models;
 
 namespace TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit
 {
-  [TestFixture, Ignore]
+  [TestFixture]
   class GetAMuppet
   {
     private TestHttpServer _testHttpServer;
@@ -36,9 +36,8 @@ namespace TestExamples.Muppets.Api.Tests.Unit.HittingApi.nUnit
         session.SaveChanges();
       }
 
-      // TODO: Need to inject the store via the TestHttpServer - IOC?
-
       _testHttpServer = new TestHttpServer();
+      _testHttpServer.SetDocumentStoreDependency(_store);
     }
 
     [TestFixtureTearDown]

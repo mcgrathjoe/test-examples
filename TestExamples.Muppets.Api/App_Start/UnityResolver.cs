@@ -7,8 +7,6 @@
 
   public class UnityResolver : IDependencyResolver
   {
-    protected IUnityContainer Container;
-
     public UnityResolver(IUnityContainer container)
     {
       if (container == null)
@@ -18,6 +16,8 @@
       
       Container = container;
     }
+
+    public IUnityContainer Container { get; private set; }
 
     public object GetService(Type serviceType)
     {
